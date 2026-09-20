@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ============================================================
+   EduPass — Professional Design System
+   Aesthetic: Studio Warm Beige, Fraunces Editorial Serif & Montserrat
+   ============================================================ */
+
+@theme {
+  /* Colors - Warm Beige & High-End Neutral Palette */
+  --color-ep-bg: #FAF7F2;
+  --color-ep-dark: #18181B;
+  --color-ep-forest: #1A382B;
+  --color-ep-green: #23533D;
+  --color-ep-mint: #EAF0EC;
+  --color-ep-amber: #B47828;
+  --color-ep-red: #B93838;
+  --color-ep-white: #FFFFFF;
+  --color-ep-muted: #6E6D66;
+  --color-ep-border: #E5E0D6;
+  --color-ep-green-light: #2A664B;
+  --color-ep-beige-card: #F4EFE7;
+  --color-ep-beige-subtle: #EDE7DC;
+
+  /* Typography */
+  --font-display: 'Fraunces', serif;
+  --font-sans: 'Montserrat', sans-serif;
+
+  /* Border Radius */
+  --radius-ep: 12px;
+  --radius-ep-sm: 8px;
+  --radius-ep-lg: 18px;
+  --radius-ep-pill: 9999px;
+}
+
+/* ── Base ──────────────────────────────────────────────────── */
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-ep-bg);
+  color: var(--color-ep-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #FAF7F2;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ── Display Font ─────────────────────────────────────────── */
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* ── Smooth Scrolling ─────────────────────────────────────── */
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ── Focus Styles ─────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--color-ep-dark);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Selection ────────────────────────────────────────────── */
+
+::selection {
+  background: var(--color-ep-dark);
+  color: #FFFFFF;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-ep-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ep-muted);
+}
+
+/* ── Animations ───────────────────────────────────────────── */
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(35, 83, 61, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(35, 83, 61, 0); }
+}
+
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(185, 56, 56, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(185, 56, 56, 0); }
+}
+
+@keyframes pulse-amber {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(180, 120, 40, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(180, 120, 40, 0); }
+}
+
+@keyframes scan-line {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+.animate-pulse-green { animation: pulse-green 2s ease-in-out infinite; }
+.animate-pulse-red { animation: pulse-red 2s ease-in-out infinite; }
+.animate-pulse-amber { animation: pulse-amber 2s ease-in-out infinite; }
+.animate-scan-line { animation: scan-line 2s linear infinite; }
+
+/* ── QR Scanner Overlay ───────────────────────────────────── */
+
+.scanner-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-ep);
+}
+
+/* ── Pass Card ────────────────────────────────────────────── */
+
+.pass-gradient {
+  background: linear-gradient(135deg, #18181B 0%, #232724 60%, #1A382B 100%);
+}
+
+/* ── Glass Effect ─────────────────────────────────────────── */
+
+.glass {
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-ep-border);
+}
